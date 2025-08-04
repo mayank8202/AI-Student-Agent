@@ -72,7 +72,6 @@ def process_audio_with_vosk(audio_data):
         if len(audio_buffer) >= buffer_threshold:
             recognizer = KaldiRecognizer(vosk_model, 16000)  # 16kHz sample rate
             transcript = ""
-
             # Feed the buffered audio data to the recognizer
             if recognizer.AcceptWaveform(audio_buffer):
                 result = json.loads(recognizer.Result())
